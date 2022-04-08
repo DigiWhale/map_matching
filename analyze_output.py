@@ -10,6 +10,7 @@ df['geometry'] = df['mgeom'].apply(wkt.loads)
 line_string = []
 for index, row in df.iterrows():
     line_string.append(df['geometry'].iloc[index])
+    print(df['geometry'].iloc[index])
 print(df.geometry.head())
 crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
