@@ -7,5 +7,5 @@ df = pd.read_csv('output.csv', sep=';')
 print(df.head())
 df['geometry'] = df['pgeom']
 crs = {'init': 'epsg:4326'}
-gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('pgeom')
+gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
 print(gdf.head())
