@@ -6,7 +6,7 @@ fmm --ubodt ubodt_config.txt\
  --source u\
  --target v\
  --gps ../road_network/master_log.csv\
- --gps_point -k 4 -r 0.4 -e 0.5\
+ --gps_point -k 8 -r 300 -e 200\
  --output output.csv\
  --output_fields all\
  --gps_x jetson_rpi_lng\
