@@ -12,7 +12,7 @@ for index, row in df.iterrows():
   line = df['geometry'].iloc[index]
   if len(line) == 69:
     print(index)
-    line_string.append(df['geometry'].iloc[index].apply(wkt.loads))
+    line_string.append(df['geometry'][index].apply(wkt.loads))
     print(type(line))
     print(len(line))
 # print(df.geometry.head())
