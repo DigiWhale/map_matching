@@ -7,9 +7,11 @@ df = pd.read_csv('output.csv', sep=';')
 df = df[0: -10]
 df['geometry'] = df['pgeom']
 # df['geometry'] = df['pgeom'].map(wkt.loads)
+line_string = []
 for index, row in df.iterrows():
-    print(df['geometry'].iloc[index])
+    line_string.append(df['geometry'].iloc[index])
 print(df.geometry.head())
 crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
-print(gdf.head())
+# print(gdf.head())
+gs_ls = gpd.GeoSeries(pd.Series(line_string).apply(wkt.loads))
