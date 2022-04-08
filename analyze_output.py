@@ -21,6 +21,8 @@ line_string = []
 for index, row in df.iterrows():
   if df['format_geometry'].iloc[index] != None:
     line_string.append(df['format_geometry'].iloc[index])
+  else:
+    df=df.drop(df.index[index])
 df['geometry'] = line_string
 #   print(line)
 #   # if len(line) == 69:
