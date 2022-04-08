@@ -10,8 +10,8 @@ df['geometry'] = df['mgeom']
 line_string = []
 for index, row in df.iterrows():
   line = df['geometry'].iloc[index]
-  line_string.append(line)
-  if len(line) > 2:
+  if len(line) == 69:
+    line_string.append(line)
     print(len(line))
 print(df.geometry.head())
 crs = {'init': 'epsg:4326'}
