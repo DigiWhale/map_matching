@@ -29,5 +29,6 @@ df['geometry'] = df['mgeom'].apply(wkt_loads)
 # print(df.geometry.head())
 crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
+print(gdf['geometry'])
 # print(gdf.head())
 # gs_ls = gpd.GeoSeries(pd.Series(line_string).apply(wkt.loads))
