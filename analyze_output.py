@@ -5,7 +5,7 @@ from shapely import wkt
 
 df = pd.read_csv('output.csv', sep=';')
 df = df[0: -10]
-df['geometry'] = df['mgeom'].apply(wkt.loads)
+df['geometry'] = df['mgeom']
 # df['geometry'] = df['mgeom'].map(wkt.loads)
 line_string = []
 for index, row in df.iterrows():
