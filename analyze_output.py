@@ -1,7 +1,7 @@
 import pandas as pd
 import geopandas as gpd
 from shapely import wkt
-import traceback
+import folium
 
 def wkt_loads(x):
     try:
