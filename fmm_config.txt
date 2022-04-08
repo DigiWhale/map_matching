@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <input>
+    <ubodt>
+      <file>ubodt_config.txt</file>
+    </ubodt>
+    <network>
+      <file>network-new/edges.shp</file>
+      <id>id</id>
+    </network>
+  </input>
+  <parameters>
+    <k>4</k>
+    <r>0.4</r>
+    <gps_error>0.5</gps_error>
+  </parameters>
+  <output>
+    <fields>
+      <all/>
+    </fields>
+    <file>mr.txt</file>
+  </output>
+  <other>
+    <log_level>2</log_level>
+  </other>
+</config>
