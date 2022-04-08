@@ -14,12 +14,14 @@ df = pd.read_csv('output.csv', sep=';')
 # df = df[0: -10]
 # df['geometry'] = df['mgeom']
 # try:
-df['geometry'] = df['mgeom'].apply(wkt_loads)
+df['format_geometry'] = df['mgeom'].apply(wkt_loads)
 # except:
 #   print('Error:', traceback.format_exc())
-# line_string = []
-# for index, row in df.iterrows():
-#   line = df['geometry'].iloc[index]
+line_string = []
+for index, row in df.iterrows():
+  if df['format_geometry'].iloc[index] != None:
+    line_string.append(df['format_geometry'].iloc[index])
+df['geometry'] = line_string
 #   print(line)
 #   # if len(line) == 69:
   #   print(index)
