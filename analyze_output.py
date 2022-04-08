@@ -1,12 +1,16 @@
 import pandas as pd
 import geopandas as gpd
 from shapely import wkt
+import traceback
 
 
 df = pd.read_csv('output.csv', sep=';')
 df = df[0: -10]
 # df['geometry'] = df['mgeom']
-df['geometry'] = df['mgeom'].apply(wkt.loads)
+try:
+  df['geometry'] = df['mgeom'].apply(wkt.loads)
+except:
+  print('Error:', traceback.format_exc())
 line_string = []
 for index, row in df.iterrows():
   line = df['geometry'].iloc[index]
