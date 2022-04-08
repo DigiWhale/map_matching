@@ -4,6 +4,7 @@ from shapely import wkt
 
 
 df = pd.read_csv('output.csv', sep=';')
+df = df[0: -10]
 df['geometry'] = df['pgeom']
 # df['geometry'] = df['pgeom'].map(wkt.loads)
 for index, row in df.iterrows():
