@@ -18,12 +18,16 @@ df['format_geometry'] = df['mgeom'].apply(wkt_loads)
 # except:
 #   print('Error:', traceback.format_exc())
 line_string = []
+drop = []
 for index, row in df.iterrows():
   if df['format_geometry'].iloc[index] != None:
     line_string.append(df['format_geometry'].iloc[index])
   else:
-    df=df.drop(df.index[index])
-df['geometry'] = line_string
+    drop.append(index)
+    # df=df.drop(df.index[index])
+for index in drop:
+  df=df.drop(df.index[index])
+# df['geometry'] = line_string
 #   print(line)
 #   # if len(line) == 69:
   #   print(index)
