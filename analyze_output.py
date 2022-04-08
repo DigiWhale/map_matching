@@ -30,5 +30,11 @@ df['geometry'] = df['mgeom'].apply(wkt_loads)
 crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
 print(gdf['geometry'])
+map = gdf.explore()
+html_string = map.get_root().render()
+#write html to file
+output_file = open("map.html","w+")
+output_file.write(html_string)
+output_file.close()
 # print(gdf.head())
 # gs_ls = gpd.GeoSeries(pd.Series(line_string).apply(wkt.loads))
