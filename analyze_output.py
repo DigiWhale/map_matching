@@ -12,6 +12,7 @@ for index, row in df.iterrows():
   line = df['geometry'].iloc[index]
   if len(line) == 69:
     line_string.append(line)
+    print(type(line))
     print(len(line))
 print(df.geometry.head())
 crs = {'init': 'epsg:4326'}
