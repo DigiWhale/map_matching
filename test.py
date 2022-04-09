@@ -39,7 +39,7 @@ for index, row in df.iterrows():
 # for index, row in df.iterrows():
 #   print(df['points'].iloc[index], type(df['points'].iloc[index]))
     # df=df.drop(df.index[index])
-merged_line = ops.linemerge(df['geometry'].all())
+merged_line = ops.linemerge(df['pgeom'].all())
 print(merged_line)
 # for index in drop:
 #   df=df.drop(df.index[index])
