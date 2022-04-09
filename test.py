@@ -24,8 +24,8 @@ pdf = df
 # df = df[0: -10]
 # df['geometry'] = df['mgeom']
 # try:
-df['geometry1'] = df['mgeom'].apply(wkt_loads)
-df['geometry'] = df['pgeom'].apply(wkt_loads)
+df['geometry'] = df['mgeom'].apply(wkt_loads)
+df['points'] = df['pgeom'].apply(wkt_loads)
 # except:
 #   print('Error:', traceback.format_exc())
 line_string = []
@@ -36,6 +36,8 @@ for index, row in df.iterrows():
     line_string.append(df['geometry'].iloc[index])
   else:
     drop.append(index)
+for index, row in df.iterrows():
+  print(df['points'].iloc[index], type(df['points'].iloc[index]))
     # df=df.drop(df.index[index])
 # for index in drop:
 #   df=df.drop(df.index[index])
