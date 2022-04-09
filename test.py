@@ -9,9 +9,18 @@ def wkt_loads(x):
         return wkt.loads(x)
     except Exception:
         return None
+      
+def create_polygon(coords, polygon_name):
+  ''' Create a polygon from coordinates '''
+  polygon = Polygon(coords)
+  gdf = gpd.GeoDataFrame(crs = {'init' :'epsg:4326'})
+  gdf.loc[0,'name'] = polygon_name
+  gdf.loc[0, 'geometry'] = polygon
+  return gdf
 
 
 df = pd.read_csv('output.csv', sep=';')
+pdf = df
 # df = df[0: -10]
 # df['geometry'] = df['mgeom']
 # try:
@@ -22,6 +31,7 @@ line_string = []
 drop = []
 for index, row in df.iterrows():
   if df['geometry'].iloc[index] != None:
+    print(df['geometry'].iloc[index])
     line_string.append(df['geometry'].iloc[index])
   else:
     drop.append(index)
@@ -37,6 +47,7 @@ df = df.drop(df.index[drop])
   #   print(type(line))
   #   print(len(line))
 # print(df.geometry.head())
+# shapefile = create_polygon(coordinates, “Amesterdam”)
 crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
 print(gdf['geometry'])
