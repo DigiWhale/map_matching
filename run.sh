@@ -13,3 +13,4 @@ fmm --ubodt ubodt_config.txt\
  --gps_y jetson_rpi_lat\
  --gps_timestamp timestamp\
  --gps_id Id\
+ --use_omp\
