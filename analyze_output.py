@@ -25,8 +25,9 @@ for index, row in df.iterrows():
   else:
     drop.append(index)
     # df=df.drop(df.index[index])
-for index in drop:
-  df=df.drop(df.index[index])
+# for index in drop:
+#   df=df.drop(df.index[index])
+df.drop(df.index[drop])
 # df['geometry'] = line_string
 #   print(line)
 #   # if len(line) == 69:
