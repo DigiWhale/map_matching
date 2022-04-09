@@ -20,8 +20,8 @@ df['format_geometry'] = df['mgeom'].apply(wkt_loads)
 line_string = []
 drop = []
 for index, row in df.iterrows():
-  if df['format_geometry'].iloc[index] != None:
-    line_string.append(df['format_geometry'].iloc[index])
+  if df['geometry'].iloc[index] != None:
+    line_string.append(df['geometry'].iloc[index])
   else:
     drop.append(index)
     # df=df.drop(df.index[index])
