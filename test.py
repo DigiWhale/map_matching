@@ -32,7 +32,7 @@ line_string = []
 drop = []
 for index, row in df.iterrows():
   if df['geometry'].iloc[index] != None:
-    print(df['geometry'].iloc[index], type(df['geometry'].iloc[index]))
+    # print(df['geometry'].iloc[index], type(df['geometry'].iloc[index]))
     line_string.append(df['geometry'].iloc[index])
   else:
     drop.append(index)
@@ -55,7 +55,7 @@ df = df.drop(df.index[drop])
 # shapefile = create_polygon(coordinates, “Amesterdam”)
 crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
-print(gdf['geometry'])
+# print(gdf['geometry'])
 gdf.to_file('output.shp', driver='ESRI Shapefile')
 map = gdf.explore()
 html_string = map.get_root().render()
