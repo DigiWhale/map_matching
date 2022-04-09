@@ -40,6 +40,7 @@ for index, row in df.iterrows():
 #   print(df['points'].iloc[index], type(df['points'].iloc[index]))
     # df=df.drop(df.index[index])
 merged_line = ops.linemerge(line_string)
+print(merged_line)
 # for index in drop:
 #   df=df.drop(df.index[index])
 df = df.drop(df.index[drop])
