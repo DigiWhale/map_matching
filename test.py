@@ -25,7 +25,7 @@ pdf = df
 # df['geometry'] = df['mgeom']
 # try:
 df['geometry'] = df['mgeom'].apply(wkt_loads)
-df['points'] = df['pgeom'].apply(wkt_loads)
+df['points'] = df['pgeom'].apply(wkt.loads)
 # except:
 #   print('Error:', traceback.format_exc())
 line_string = []
