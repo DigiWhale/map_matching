@@ -1,6 +1,6 @@
 import pandas as pd
 import geopandas as gpd
-from shapely import wkt
+from shapely import wkt, ops
 import folium
 from shapely.geometry import Point, Polygon
 
@@ -25,7 +25,7 @@ pdf = df
 # df['geometry'] = df['mgeom']
 # try:
 df['geometry'] = df['mgeom'].apply(wkt_loads)
-df['points'] = df['pgeom'].apply(wkt.loads)
+# df['points'] = df['pgeom'].apply(wkt_loads)
 # except:
 #   print('Error:', traceback.format_exc())
 line_string = []
@@ -39,6 +39,7 @@ for index, row in df.iterrows():
 for index, row in df.iterrows():
   print(df['points'].iloc[index], type(df['points'].iloc[index]))
     # df=df.drop(df.index[index])
+merged_line = ops.linemerge(line_string)
 # for index in drop:
 #   df=df.drop(df.index[index])
 df = df.drop(df.index[drop])
