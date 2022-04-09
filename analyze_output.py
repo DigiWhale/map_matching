@@ -14,7 +14,7 @@ df = pd.read_csv('output.csv', sep=';')
 # df = df[0: -10]
 # df['geometry'] = df['mgeom']
 # try:
-df['format_geometry'] = df['mgeom'].apply(wkt_loads)
+df['geometry'] = df['mgeom'].apply(wkt_loads)
 # except:
 #   print('Error:', traceback.format_exc())
 line_string = []
