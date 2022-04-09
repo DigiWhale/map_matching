@@ -31,7 +31,7 @@ line_string = []
 drop = []
 for index, row in df.iterrows():
   if df['geometry'].iloc[index] != None:
-    print(df['geometry'].iloc[index])
+    print(df['geometry'].iloc[index][0])
     line_string.append(df['geometry'].iloc[index])
   else:
     drop.append(index)
