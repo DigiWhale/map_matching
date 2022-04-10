@@ -69,7 +69,7 @@ map = gdf.explore()
 folium.GeoJson(polygon).add_to(map)
 html_string = map.get_root().render()
 #write html to file
-output_file = open("map.html","w+")
+output_file = open("map1.html","w+")
 output_file.write(html_string)
 output_file.close()
 # print(gdf.head())
