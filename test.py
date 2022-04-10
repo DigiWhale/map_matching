@@ -44,6 +44,7 @@ multi_line = geometry.MultiLineString(line_string)
 print(multi_line)
 merged_line = ops.linemerge(multi_line)
 print(merged_line)
+mycoordslist = [list(x.exterior.coords) for x in merged_line]
 # for index in drop:
 #   df=df.drop(df.index[index])
 df = df.drop(df.index[drop])
@@ -61,9 +62,9 @@ gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
 # print(gdf['geometry'])
 gdf.to_file('output.shp', driver='ESRI Shapefile')
 map = gdf.explore()
-x,y = merged_line.exterior.xy
-print(x,y)
-# map.add_child(plt.plot(x, y))
+# x,y = merged_line.exterior.xy
+# print(x,y)
+map.add_child(plt.plot(mycoordslist, color='red', alpha=0.7, linewidth=3))
 html_string = map.get_root().render()
 #write html to file
 output_file = open("map.html","w+")
