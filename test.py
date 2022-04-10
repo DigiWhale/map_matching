@@ -64,7 +64,8 @@ gdf.to_file('output.shp', driver='ESRI Shapefile')
 map = gdf.explore()
 # x,y = merged_line.exterior.xy
 # print(x,y)
-map.add_child(plt.plot(mycoordslist, color='red', alpha=0.7, linewidth=3))
+print(mycoordslist)
+# map.add_child(plt.plot(mycoordslist, color='red', alpha=0.7, linewidth=3))
 html_string = map.get_root().render()
 #write html to file
 output_file = open("map.html","w+")
