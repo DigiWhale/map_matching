@@ -66,7 +66,7 @@ map = gdf.explore()
 # x,y = merged_line.exterior.xy
 # print(x,y)
 # print(mycoordslist)
-map.add_child(plt.plot(polygon, color='red', alpha=0.7, linewidth=3))
+folium.GeoJson(polygon).add_to(map)
 html_string = map.get_root().render()
 #write html to file
 output_file = open("map.html","w+")
