@@ -44,7 +44,7 @@ multi_line = geometry.MultiLineString(line_string)
 print(multi_line)
 merged_line = ops.linemerge(multi_line)
 print(merged_line)
-mycoordslist = [list(x.exterior.coords) for x in merged_line]
+mycoordslist = [list(x.exterior.coords) for x in multi_line]
 # for index in drop:
 #   df=df.drop(df.index[index])
 df = df.drop(df.index[drop])
