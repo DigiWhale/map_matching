@@ -59,7 +59,8 @@ gdf = gpd.GeoDataFrame(df, crs=crs).set_geometry('geometry')
 # print(gdf['geometry'])
 gdf.to_file('output.shp', driver='ESRI Shapefile')
 map = gdf.explore()
-map.add_child(plt.plot(multi_line))
+x,y = multi_line.exterior.xy
+map.add_child(plt.plot(x, y))
 html_string = map.get_root().render()
 #write html to file
 output_file = open("map.html","w+")
