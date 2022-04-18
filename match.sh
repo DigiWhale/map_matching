@@ -5,7 +5,7 @@ stmatch\
  --network_id fid\
  --source u\
  --target v\
- --gps ../road_network/master_log.csv\
+ --gps master_log.csv\
  --gps_point -k 8 -r 3 -e 800\
  --output output.csv\
  --output_fields all\
