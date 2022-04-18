@@ -1,3 +1,5 @@
+#!/bin/bash
+
 stmatch\
  --network  ../maryland-latest.osm.pbf
  --gps_file master_log.csv\
