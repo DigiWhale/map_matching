@@ -1,12 +1,16 @@
 #!/bin/bash
 
-stmatch\
- --network  ../maryland-latest.osm.pbf
- --gps_file master_log.csv\
+stmatch --ubodt ubodt_config.txt\
+ --network maryland/edges.shp\
+ --network_id fid\
+ --source u\
+ --target v\
+ --gps ../road_network/master_log.csv\
+ --gps_point -k 8 -r 3 -e 800\
+ --output output.csv\
+ --output_fields all\
  --gps_x jetson_rpi_lng\
  --gps_y jetson_rpi_lat\
  --gps_timestamp timestamp\
  --gps_id Id\
- -k 16 -r 0.005 -e 0.0005\
- --vmax 0.0002\
- --output maryland_match.txt
+ --use_omp\
