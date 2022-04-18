@@ -1,6 +1,6 @@
 #!/bin/bash
 
-stmatch --ubodt ubodt_config.txt\
+stmatch\
  --network maryland/edges.shp\
  --network_id fid\
  --source u\
