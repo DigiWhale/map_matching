@@ -1,6 +1,6 @@
 stmatch\
  --network  ../maryland-latest.osm.pbf
- --gps ../road_network/master_log.csv\
+ --gps master_log.csv\
  --gps_x jetson_rpi_lng\
  --gps_y jetson_rpi_lat\
  --gps_timestamp timestamp\
